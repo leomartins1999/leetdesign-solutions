@@ -6,4 +6,4 @@ This repo holds the solution + implementation of the challenges found in https:/
 
 | Day    | Title    | Done  |
 | :-:    | :----    | :--:  |
-| 1      | Tiny URL | ❌     |
+| 1      | Tiny URL | ✅     |

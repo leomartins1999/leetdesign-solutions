@@ -1,7 +1,18 @@
 package com.github.leomartins1999.interactors
 
-class CreateTinyURLInteractor {
-    fun call(url: String) = "some-id"
+import com.github.leomartins1999.gateways.RedisGateway
+import java.util.UUID
+
+class CreateTinyURLInteractor(
+    private val redisGateway: RedisGateway = RedisGateway.singleton
+) {
+    suspend fun call(url: String): String {
+        val id = UUID.randomUUID().toString()
+
+        redisGateway.save(id, url)
+
+        return id
+    }
 
     companion object {
         val singleton = CreateTinyURLInteractor()
